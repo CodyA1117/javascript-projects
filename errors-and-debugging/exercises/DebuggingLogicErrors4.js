@@ -4,6 +4,10 @@
 // Given the values for fuelLevel, crewStatus and computerStatus, should launchReady be true or false?
 // Is the program behaving as expected?
 
+//Codys notes:  No it should not have launched.  The error is withing launchReady because it is saying that
+//since the crew members are ready it is switiching launch ready to true, which is making the program launch the rocket.
+//This needs to be fixed. 
+
 let launchReady = false;
 let fuelLevel = 17000;
 let crewStatus = true;

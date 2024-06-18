@@ -8,13 +8,13 @@ if (fuelLevel >= 20000) {
    console.log('WARNING: Insufficient fuel!');
    launchReady = false;
 }
-
+// Console was spelled wrong.  Was corrected and now compiles.
 if (launchReady) {
    console.log("10, 9, 8...");
    console.log("Fed parrot...");
    console.log("6, 5, 4...");
    console.log("Ignition...");
-   consoul.log("3, 2, 1...");
+   console.log("3, 2, 1...");    
    console.log("Liftoff!");
 } else {
    console.log("Launch scrubbed.");
