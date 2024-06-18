@@ -50,6 +50,9 @@ if (weatherStatus != "clear"){
 }
 // Verify shuttle launch can proceed based on above conditions
 
-if (preparedForLiftOf === true){
-    console.log ("We have liftoff!")
+if (preparedForLiftOff){
+    console.log ("All systems are go! Lets get this party started, and launch this ship!")
+}   else {
+    console.log("Shuttle launch is aborted, we need to check the systems and conditions.")
 }
+
