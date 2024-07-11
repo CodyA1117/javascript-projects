@@ -1,6 +1,7 @@
 // Code your selectRandomEntry function here:
 let idNumbers = [291, 414, 503, 599, 796, 890];
 
+
 function selectRandomEntry(arrayInput){
   let randEntry = Math.floor(Math.random()*arrayInput.length);
  return idNumbers[randEntry];
@@ -8,31 +9,20 @@ function selectRandomEntry(arrayInput){
 
 }
 
-console.log(selectRandomEntry(idNumbers));
-
-const selectedNums = [];
-
-while (selectedNums.length < 3){
-  let luckyPick = selectRandomEntry(idNumbers);
-  if(!(selectedNums.includes(luckyPick))){
-    selectedNums.push(luckyPick);
-  }
-    
-}
-console.log(selectedNums);
-// Code your buildCrewArray function here:
-function buildCrewArray(numberID, crewArray){
+function buildCrewArray(selectedNums, candidates){
   let crew = [];
-  for (let i = 0; i < crewArray.length; i++){
-    if (crewArray[i].astronautID === numberID[i]) {
-      crew.push(crewArray[i]);
-
-      return crew;
-    
+  for (let i=0; i < candidates.length; i++){
+    if(selectedNums.includes(candidates[i].astronautID)){
+      crew.push(candidates[i]);
     }
-
   }
+  return crew;
+
 }
+
+// console.log(selectRandomEntry(idNumbers));
+
+
 
 // Here are the candidates and the 'animals' array:
 let candidateA = {
@@ -82,4 +72,15 @@ let candidateF = {
 let animals = [candidateA,candidateB,candidateC,candidateD,candidateE,candidateF];
 
 // Code your template literal and console.log statements:
-console.log(``)
+const selectedNums = [];
+
+while (selectedNums.length < 3){
+  let luckyPick = selectRandomEntry(idNumbers);
+  if(!(selectedNums.includes(luckyPick))){
+    selectedNums.push(luckyPick);
+  }
+    
+}
+console.log(selectedNums);
+let selectedCrew = buildCrewArray(selectedNums, animals);
+console.log(`${selectedCrew[0].name},${selectedCrew[1].name}, and ${selectedCrew[2].name} are going to space!`)
