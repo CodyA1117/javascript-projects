@@ -94,4 +94,4 @@ function fitnessTest(candidates){
 return results;
 }
 
-console.log(fitnessTest(crew)); 
+console.log(fitnessTest(crew));
