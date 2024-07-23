@@ -19,3 +19,11 @@ console.log(fox);
 console.log(fox.age, fox.color);
 
 //Try modifying or adding properties below.
+console.log(fox);
+console.log(fox.legs, fox.teeth);
+
+fox.legs = 4;
+fox.teeth = 2;
+
+console.log(fox);
+console.log(fox.legs, fox.teeth);
