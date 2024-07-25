@@ -1,5 +1,7 @@
 
 let launchcode = {
+    organization: "nonprofit",
+    executiveDirector: "Jeff"
   
 }
 
