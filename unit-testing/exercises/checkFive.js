@@ -12,4 +12,4 @@ function checkFive(num){
 
  module.exports = checkFive;
 
- //checking to see if git is working
+ //checking to see if git is working lets find out
