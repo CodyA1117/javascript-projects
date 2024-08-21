@@ -1,67 +1,71 @@
-// Write your JavaScript code here.
-// Remember to pay attention to page loading!
-// Write your JavaScript code here.
-// Remember to pay attention to page loading!
 window.addEventListener("load", function () {
-    let takeOff = this.document.getElementById("takeoff");
-    let flightStatus = this.document.getElementById("flightStatus");
+    let takeOff = document.getElementById("takeoff");
+    let flightStatus = document.getElementById("flightStatus");
     let shuttleBackground = document.getElementById("shuttleBackground");
     let spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
     let land = document.getElementById("landing");
     let abortMission = document.getElementById("missionAbort");
-    let rocket = this.document.getElementById("rocket");
-    let x = 0;
-    let y = 0;
-    const up = document.getElementById("up");
-    const down = document.getElementById("down");
-    const left = document.getElementById("left");
-    const right = document.getElementById("right");
-   
+    let rocket = document.getElementById("rocket");
+
+    // Initialize rocket's position
+    rocket.style.position = "absolute"; // Ensure the rocket is absolutely positioned
+    rocket.style.left = "0px"; 
+    rocket.style.bottom = "0px";
 
     takeOff.addEventListener("click", function () {
         let confirmed = window.confirm("Confirm that shuttle is ready for takeoff");
 
         if (confirmed) {
-            //window.alert("it worked");
             flightStatus.innerHTML = "Shuttle in flight.";
             shuttleBackground.style.backgroundColor = "blue";
-            spaceShuttleHeight.innerHTML = Number(spaceShuttleHeight.innerHTML) + 10000
+            spaceShuttleHeight.innerHTML = Number(spaceShuttleHeight.innerHTML) + 10000;
         }
-     });
+    });
 
-     land.addEventListener("click", function(){
+    land.addEventListener("click", function(){
         window.alert("The shuttle is landing. Landing gear engaged.");
         flightStatus.innerHTML = "The shuttle has landed.";
         shuttleBackground.style.backgroundColor = "green";
         spaceShuttleHeight.innerHTML = 0;
-     });
+        rocket.style.left = "0px";  // Reset rocket position
+        rocket.style.bottom = "0px";
+    });
 
-     abortMission.addEventListener("click",function(){
+    abortMission.addEventListener("click", function(){
         let confirmed = window.confirm("Confirm that you want to abort the mission.");
-        if(confirmed){
-        flightStatus.innerHTML = "Mission aborted.";
-        shuttleBackground.style.backgroundColor = "red";
-        spaceShuttleHeight.innerHTML = 0;
+        if (confirmed) {
+            flightStatus.innerHTML = "Mission aborted.";
+            shuttleBackground.style.backgroundColor = "green"; // Changed to green to match the requirements
+            spaceShuttleHeight.innerHTML = 0;
+            rocket.style.left = "0px";  // Reset rocket position
+            rocket.style.bottom = "0px";
         }
-
-     });
-
-
-     //rocket is id for img
-    up.addEventListener("click", function(){
-        rocket.style.top = (parseInt(a.style.top) -10) + "px";
-
     });
-    down.addEventListener("click", function(){
-        rocket.style.transform = `translate(0px,${y += 10}px)`;
+
+    // Add event listeners for movement buttons
+    document.getElementById("up").addEventListener("click", function(){
+        let currentBottom = parseInt(rocket.style.bottom);
+        rocket.style.bottom = (currentBottom + 10) + "px";
+        spaceShuttleHeight.innerHTML = Number(spaceShuttleHeight.innerHTML) + 10000;
     });
-    left.
-    } )
-    right
 
+    document.getElementById("down").addEventListener("click", function(){
+        let currentBottom = parseInt(rocket.style.bottom);
+        if (currentBottom > 0) { // Prevent rocket from going below the screen
+            rocket.style.bottom = (currentBottom - 10) + "px";
+            spaceShuttleHeight.innerHTML = Number(spaceShuttleHeight.innerHTML) - 10000;
+        }
+    });
 
+    document.getElementById("left").addEventListener("click", function(){
+        let currentLeft = parseInt(rocket.style.left);
+        if (currentLeft > 0) { // Prevent rocket from moving off the left edge
+            rocket.style.left = (currentLeft - 10) + "px";
+        }
+    });
 
-
-
-
+    document.getElementById("right").addEventListener("click", function(){
+        let currentLeft = parseInt(rocket.style.left);
+        rocket.style.left = (currentLeft + 10) + "px";
+    });
 });
